@@ -5,11 +5,11 @@ type SingleUrlDailyProps = {
   data: any;
   listIndex: number;
   formFactor: string;
-  collectionPeriod: CollectionPeriodsEntity | null;
-  clsData: string | null;
-  lcpData: number | null;
-  ttfbData: number | null;
-  inpData: number | null;
+  collectionPeriod: CollectionPeriodsEntity | null | undefined;
+  clsData: string | null | undefined;
+  lcpData: number | null | undefined;
+  ttfbData: number | null | undefined;
+  inpData: number | null | undefined;
   metrics: string;
   responseFormFactor: string;
   responseUrl: string;

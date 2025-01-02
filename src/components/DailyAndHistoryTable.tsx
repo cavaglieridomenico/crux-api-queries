@@ -91,11 +91,21 @@ function DailyAndHistoryTable({
               data={urlData}
               listIndex={index}
               formFactor={selectFormFactor?.current?.value}
-              collectionPeriods={urlData?.historyData?.record?.collectionPeriods?.reverse()}
-              clsData={urlData?.historyData?.record?.metrics?.cumulative_layout_shift?.percentilesTimeseries?.p75s?.reverse()}
-              lcpData={urlData?.historyData?.record?.metrics?.largest_contentful_paint?.percentilesTimeseries?.p75s?.reverse()}
-              ttfbData={urlData?.historyData?.record?.metrics?.experimental_time_to_first_byte?.percentilesTimeseries?.p75s?.reverse()}
-              inpData={urlData?.historyData?.record?.metrics?.interaction_to_next_paint?.percentilesTimeseries?.p75s?.reverse()}
+              collectionPeriods={urlData?.historyData?.record?.collectionPeriods
+                ?.slice()
+                .reverse()}
+              clsData={urlData?.historyData?.record?.metrics?.cumulative_layout_shift?.percentilesTimeseries?.p75s
+                ?.slice()
+                .reverse()}
+              lcpData={urlData?.historyData?.record?.metrics?.largest_contentful_paint?.percentilesTimeseries?.p75s
+                ?.slice()
+                .reverse()}
+              ttfbData={urlData?.historyData?.record?.metrics?.experimental_time_to_first_byte?.percentilesTimeseries?.p75s
+                ?.slice()
+                .reverse()}
+              inpData={urlData?.historyData?.record?.metrics?.interaction_to_next_paint?.percentilesTimeseries?.p75s
+                ?.slice()
+                .reverse()}
               metrics={selectMetrics.current.value}
               responseFormFactor={urlData?.historyData?.record?.key?.formFactor}
               responseUrl={urlData?.historyData?.record?.key?.url}
@@ -181,7 +191,7 @@ function DailyAndHistoryTable({
           <option value="daily">DAILY</option>
           <option value="history">HISTORY</option>
         </select>
-        <input type="submit" disabled={disabled} value="SHOW / REVERSE" />
+        <input type="submit" disabled={disabled} value="SHOW" />
       </form>
       {render &&
         selectFormFactor.current.value === "PHONE" &&

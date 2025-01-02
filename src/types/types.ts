@@ -7,7 +7,9 @@ export interface FetchCruxApi {
 export interface CruxApi {
   record: Record;
   urlNormalizationDetails: UrlNormalizationDetails;
+  error: ErrorApi;
 }
+
 export interface Record {
   key: Key;
   metrics: Metrics;
@@ -25,7 +27,7 @@ export interface LargestContentfulPaintOrExperimentalTimeToFirstByte {
 }
 export interface CumulativeLayoutShift {
   histogram?: HistogramEntity | null;
-  percentiles: Percentiles;
+  percentiles: CLSPercentiles;
 }
 export interface HistogramEntity {
   start: number;
@@ -34,6 +36,10 @@ export interface HistogramEntity {
 }
 export interface Percentiles {
   p75?: number | null;
+}
+
+export interface CLSPercentiles {
+  p75?: string | null;
 }
 
 /*CrUX History API*/
@@ -46,6 +52,7 @@ export interface FetchCruxHistoryApi {
 export interface CruxHistoryApi {
   record: RecordHistory;
   urlNormalizationDetails: UrlNormalizationDetails;
+  error: ErrorApi;
 }
 export interface RecordHistory {
   key: Key;
@@ -102,4 +109,5 @@ export interface UrlNormalizationDetails {
 export interface ErrorApi {
   code: string;
   message: string;
+  status: string;
 }

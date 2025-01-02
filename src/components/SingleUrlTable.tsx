@@ -1,18 +1,16 @@
-import { useEffect, useState } from "react";
-import { useFetchCruxHistory } from "../customHooks/useFetchCruxHistory";
 import PercentileRow from "./PercentileRow";
 import HeaderRow from "./HeaderRow";
-import { CollectionPeriodsEntity, FetchCruxHistoryApi } from "../types/types";
+import { CollectionPeriodsEntity } from "../types/types";
 
 type SingleUrlTableProp = {
   data: any;
   listIndex: number;
   formFactor: string;
-  collectionPeriods: CollectionPeriodsEntity[] | null;
-  clsData: string[] | null;
-  lcpData: number[] | null;
-  ttfbData: number[] | null;
-  inpData: number[] | null;
+  collectionPeriods: CollectionPeriodsEntity[] | null | undefined;
+  clsData: string[] | null | undefined;
+  lcpData: number[] | null | undefined;
+  ttfbData: number[] | null | undefined;
+  inpData: number[] | null | undefined;
   metrics: string;
   responseFormFactor: string;
   responseUrl: string;
